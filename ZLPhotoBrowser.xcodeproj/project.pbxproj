@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18FD696F2A668CAE00B62591 /* UIColor+Addition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FD696E2A668CAE00B62591 /* UIColor+Addition.swift */; };
 		2CC461BF2551214700BF96E8 /* ZLAddPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC461BE2551214600BF96E8 /* ZLAddPhotoCell.swift */; };
 		2CC461C22551312C00BF96E8 /* Bool+ZLPhotoBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC461C12551312C00BF96E8 /* Bool+ZLPhotoBrowser.swift */; };
 		E406C81C251B4F9B00852E46 /* ZLVideoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406C81B251B4F9B00852E46 /* ZLVideoManager.swift */; };
@@ -73,6 +74,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		18FD696E2A668CAE00B62591 /* UIColor+Addition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Addition.swift"; sourceTree = "<group>"; };
 		2CC461BE2551214600BF96E8 /* ZLAddPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZLAddPhotoCell.swift; sourceTree = "<group>"; };
 		2CC461C12551312C00BF96E8 /* Bool+ZLPhotoBrowser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool+ZLPhotoBrowser.swift"; sourceTree = "<group>"; };
 		E406C81B251B4F9B00852E46 /* ZLVideoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZLVideoManager.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				FDA54B8A2876D8CA0077F4FA /* UIFont+ZLPhotoBrowser.swift */,
 				FDE1DB75289A4B120003CA4D /* NSError+ZLPhotoBrowser.swift */,
 				FD24655728E2A96200C15B20 /* UIView+ZLPhotoBrowser.swift */,
+				18FD696E2A668CAE00B62591 /* UIColor+Addition.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 				2CC461C22551312C00BF96E8 /* Bool+ZLPhotoBrowser.swift in Sources */,
 				E462467624EF6A7D00EF6C57 /* ZLPhotoPreviewCell.swift in Sources */,
 				E406C81C251B4F9B00852E46 /* ZLVideoManager.swift in Sources */,
+				18FD696F2A668CAE00B62591 /* UIColor+Addition.swift in Sources */,
 				E4C911D424E288780061DA40 /* ZLPhotoConfiguration.swift in Sources */,
 				E410177925305C73004C4952 /* ZLFilter.swift in Sources */,
 				FDE1DB76289A4B120003CA4D /* NSError+ZLPhotoBrowser.swift in Sources */,

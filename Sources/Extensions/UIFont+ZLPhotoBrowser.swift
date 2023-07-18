@@ -34,4 +34,18 @@ extension ZLPhotoBrowserWrapper where Base: UIFont {
         
         return UIFont(name: name, size: fontSize) ?? UIFont.systemFont(ofSize: fontSize)
     }
+    
+    
+    /// 编辑器中SemiBold字体
+    static var semiBold16: UIFont? {
+        ZLPhotoUIConfiguration.default().semiBold16
+    }
+    
+    static var semiBold15: UIFont? {
+        ZLPhotoUIConfiguration.default().semiBold15
+    }
+    
+    static var medium14: UIFont? {
+        ZLPhotoUIConfiguration.default().medium14
+    }
 }

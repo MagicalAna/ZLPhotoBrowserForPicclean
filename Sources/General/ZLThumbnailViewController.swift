@@ -44,6 +44,8 @@ extension ZLThumbnailViewController {
 class ZLThumbnailViewController: UIViewController {
     private var albumList: ZLAlbumListModel
     
+    private var backgroundImageView: UIImageView!
+    
     private var externalNavView: ZLExternalAlbumListNavView?
     
     private var embedNavView: ZLEmbedAlbumListNavView?
@@ -166,7 +168,7 @@ class ZLThumbnailViewController: UIViewController {
         layout.sectionInset = UIEdgeInsets(top: 3, left: 0, bottom: 3, right: 0)
         
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        view.backgroundColor = .zl.thumbnailBgColor
+        view.backgroundColor = .clear
         view.dataSource = self
         view.delegate = self
         view.alwaysBounceVertical = true
@@ -251,6 +253,8 @@ class ZLThumbnailViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        
+        backgroundImageView.frame = view.bounds
         
         let navViewNormalH: CGFloat = 44
         
@@ -340,7 +344,11 @@ class ZLThumbnailViewController: UIViewController {
     private func setupUI() {
         automaticallyAdjustsScrollViewInsets = true
         edgesForExtendedLayout = .all
-        view.backgroundColor = .zl.thumbnailBgColor
+        view.backgroundColor = .color(hexString: "#F7F7F7")
+        
+        backgroundImageView = UIImageView(image: .zl.getImage("Global_Background"))
+        backgroundImageView.contentMode = .scaleAspectFill
+        view.addSubview(backgroundImageView)
         
         view.addSubview(collectionView)
         view.addSubview(bottomView)
@@ -463,6 +471,7 @@ class ZLThumbnailViewController: UIViewController {
     }
     
     private func shouldShowBottomToolBar() -> Bool {
+        return false
         let config = ZLPhotoConfiguration.default()
         let condition1 = config.editAfterSelectThumbnailImage &&
             config.maxSelectCount == 1 &&
@@ -1366,7 +1375,7 @@ class ZLEmbedAlbumListNavView: UIView {
     
     private lazy var titleBgControl: UIControl = {
         let control = UIControl()
-        control.backgroundColor = .zl.navEmbedTitleViewBgColor
+        control.backgroundColor = .clear
         control.layer.cornerRadius = ZLEmbedAlbumListNavView.titleViewH / 2
         control.layer.masksToBounds = true
         control.addTarget(self, action: #selector(titleBgControlClick), for: .touchUpInside)
@@ -1375,15 +1384,15 @@ class ZLEmbedAlbumListNavView: UIView {
     
     private lazy var albumTitleLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .zl.navTitleColor
-        label.font = ZLLayout.navTitleFont
+        label.textColor = .color(hexString: "#111111")
+        label.font = .zl.semiBold16
         label.text = title
         label.textAlignment = .center
         return label
     }()
     
     private lazy var arrow: UIImageView = {
-        let view = UIImageView(image: .zl.getImage("zl_downArrow"))
+        let view = UIImageView(image: .zl.getImage("chevronRight"))
         view.clipsToBounds = true
         view.contentMode = .scaleAspectFill
         return view
@@ -1396,7 +1405,7 @@ class ZLEmbedAlbumListNavView: UIView {
             btn.setTitle(localLanguageTextValue(.cancel), for: .normal)
             btn.setTitleColor(.zl.navTitleColor, for: .normal)
         } else {
-            btn.setImage(.zl.getImage("zl_navClose"), for: .normal)
+            btn.setImage(.zl.getImage("chevron-right-1"), for: .normal)
         }
         btn.addTarget(self, action: #selector(cancelBtnClick), for: .touchUpInside)
         return btn
@@ -1452,7 +1461,7 @@ class ZLEmbedAlbumListNavView: UIView {
         let albumTitleW = min(
             bounds.width / 2,
             title.zl.boundingRect(
-                font: ZLLayout.navTitleFont,
+                font: .zl.semiBold16!,
                 limitSize: CGSize(width: CGFloat.greatestFiniteMagnitude, height: 44)
             ).width
         )
@@ -1476,12 +1485,12 @@ class ZLEmbedAlbumListNavView: UIView {
     }
     
     private func setupUI() {
-        backgroundColor = .zl.navBarColor
+        backgroundColor = .clear
         
-        if let effect = ZLPhotoUIConfiguration.default().navViewBlurEffectOfAlbumList {
-            navBlurView = UIVisualEffectView(effect: effect)
-            addSubview(navBlurView!)
-        }
+//        if let effect = ZLPhotoUIConfiguration.default().navViewBlurEffectOfAlbumList {
+//            navBlurView = UIVisualEffectView(effect: effect)
+//            addSubview(navBlurView!)
+//        }
         
         addSubview(titleBgControl)
         titleBgControl.addSubview(albumTitleLabel)

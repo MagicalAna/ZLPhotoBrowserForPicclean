@@ -147,6 +147,13 @@ class ViewController: UIViewController {
     }
     
     @objc func librarySelectPhoto() {
+        ZLPhotoConfiguration.default().allowTakePhotoInLibrary = false
+        ZLPhotoConfiguration.default().allowPreviewPhotos = false
+        ZLPhotoConfiguration.default().maxSelectCount = 1
+        ZLPhotoUIConfiguration.default().columnCount = 3
+        ZLPhotoUIConfiguration.default().semiBold16 = UIFont(name: "Poppins-SemiBold", size: 16)
+        ZLPhotoUIConfiguration.default().semiBold15 = UIFont(name: "Poppins-SemiBold", size: 15)
+        ZLPhotoUIConfiguration.default().medium14 = UIFont(name: "Poppins-Medium", size: 14)
         showImagePicker(false)
     }
     
@@ -162,7 +169,6 @@ class ViewController: UIViewController {
 //            .indexLabelTextColor(.white)
             .minimumInteritemSpacing(minItemSpacing)
             .minimumLineSpacing(minLineSpacing)
-            .columnCountBlock { Int(ceil($0 / (428.0 / 4))) }
         
         if ZLPhotoUIConfiguration.default().languageType == .arabic {
             UIView.appearance().semanticContentAttribute = .forceRightToLeft

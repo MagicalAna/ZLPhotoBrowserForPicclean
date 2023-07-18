@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18FD697E2A6693EF00B62591 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18FD697D2A6693EF00B62591 /* Poppins-SemiBold.ttf */; };
+		18FD69802A66986900B62591 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18FD697F2A66986900B62591 /* Poppins-Medium.ttf */; };
 		E42F8ADB25CA9CDF009775A3 /* WeChatMomentDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42F8ADA25CA9CDF009775A3 /* WeChatMomentDemoViewController.swift */; };
 		E44A20F02567763A00FE6CAE /* ImageStickerContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44A20EF2567763A00FE6CAE /* ImageStickerContainerView.swift */; };
 		E462467024EE6F9A00EF6C57 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E462466F24EE6F9A00EF6C57 /* ImageCell.swift */; };
@@ -131,6 +133,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		18FD697D2A6693EF00B62591 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
+		18FD697F2A66986900B62591 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		BAFFA5482773B655007C3811 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Main.strings"; sourceTree = "<group>"; };
 		BAFFA5492773B655007C3811 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		BAFFA54A2773B65B007C3811 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
@@ -502,6 +506,8 @@
 				E4C911AD24E283DA0061DA40 /* LaunchScreen.storyboard */,
 				E4C911B024E283DA0061DA40 /* Info.plist */,
 				E463C1512509FA9500FE1401 /* Example-Bridging-Header.h */,
+				18FD697D2A6693EF00B62591 /* Poppins-SemiBold.ttf */,
+				18FD697F2A66986900B62591 /* Poppins-Medium.ttf */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -610,8 +616,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4C911AF24E283DA0061DA40 /* LaunchScreen.storyboard in Resources */,
+				18FD697E2A6693EF00B62591 /* Poppins-SemiBold.ttf in Resources */,
 				E4C911AC24E283DA0061DA40 /* Assets.xcassets in Resources */,
 				E4C911AA24E283D80061DA40 /* Main.storyboard in Resources */,
+				18FD69802A66986900B62591 /* Poppins-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

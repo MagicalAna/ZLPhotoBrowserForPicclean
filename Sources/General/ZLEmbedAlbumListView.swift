@@ -36,11 +36,11 @@ class ZLEmbedAlbumListView: UIView {
     
     private lazy var tableView: UITableView = {
         let view = UITableView(frame: .zero, style: .plain)
-        view.backgroundColor = .zl.albumListBgColor
+        view.backgroundColor = .color(hexString: "#fbfbfb")
         view.tableFooterView = UIView()
-        view.rowHeight = ZLEmbedAlbumListView.rowH
+        view.rowHeight = 90
         view.separatorInset = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 0)
-        view.separatorColor = .zl.separatorLineColor
+        view.separatorColor = .clear
         view.delegate = self
         view.dataSource = self
         ZLAlbumListCell.zl.register(view)
@@ -120,7 +120,7 @@ class ZLEmbedAlbumListView: UIView {
     }
     
     private func calculateBgViewBounds() -> CGRect {
-        let contentH = CGFloat(arrDataSource.count) * ZLEmbedAlbumListView.rowH
+        let contentH = CGFloat(arrDataSource.count) * 90
         
         let maxH: CGFloat
         if UIApplication.shared.statusBarOrientation.isPortrait {

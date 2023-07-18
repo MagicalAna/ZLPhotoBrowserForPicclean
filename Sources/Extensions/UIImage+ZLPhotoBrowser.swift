@@ -155,6 +155,11 @@ public extension ZLPhotoBrowserWrapper where Base: UIImage {
             }
         }
     }
+    
+    /// 相册背景图片
+    static var backgroundImage: UIImage? {
+        ZLPhotoUIConfiguration.default().backgroundImage
+    }
 }
 
 // MARK: image edit
