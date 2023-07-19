@@ -149,11 +149,12 @@ class ViewController: UIViewController {
     @objc func librarySelectPhoto() {
         ZLPhotoConfiguration.default().allowTakePhotoInLibrary = false
         ZLPhotoConfiguration.default().allowPreviewPhotos = false
-        ZLPhotoConfiguration.default().maxSelectCount = 1
+//        ZLPhotoConfiguration.default().maxSelectCount = 1
         ZLPhotoUIConfiguration.default().columnCount = 3
         ZLPhotoUIConfiguration.default().semiBold16 = UIFont(name: "Poppins-SemiBold", size: 16)
         ZLPhotoUIConfiguration.default().semiBold15 = UIFont(name: "Poppins-SemiBold", size: 15)
         ZLPhotoUIConfiguration.default().medium14 = UIFont(name: "Poppins-Medium", size: 14)
+        ZLPhotoUIConfiguration.default().isSmallScreen = true
         showImagePicker(false)
     }
     

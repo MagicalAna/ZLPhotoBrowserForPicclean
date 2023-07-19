@@ -432,6 +432,10 @@ public class ZLPhotoUIConfiguration: NSObject {
     public var semiBold16: UIFont?
     public var semiBold15: UIFont?
     public var medium14: UIFont?
+    
+    
+    /// 是否为小屏幕手机
+    public var isSmallScreen = false
 }
 
 /// Font deploy

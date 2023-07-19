@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1854DB6B2A677B5800C866B8 /* AnaButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1854DB6A2A677B5800C866B8 /* AnaButton.swift */; };
+		1854DB6D2A677EB000C866B8 /* UIViewController+Addition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1854DB6C2A677EAF00C866B8 /* UIViewController+Addition.swift */; };
+		1854DB6F2A677F2200C866B8 /* UIView+Addition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1854DB6E2A677F2200C866B8 /* UIView+Addition.swift */; };
 		18FD696F2A668CAE00B62591 /* UIColor+Addition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FD696E2A668CAE00B62591 /* UIColor+Addition.swift */; };
 		2CC461BF2551214700BF96E8 /* ZLAddPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC461BE2551214600BF96E8 /* ZLAddPhotoCell.swift */; };
 		2CC461C22551312C00BF96E8 /* Bool+ZLPhotoBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC461C12551312C00BF96E8 /* Bool+ZLPhotoBrowser.swift */; };
@@ -74,6 +77,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1854DB6A2A677B5800C866B8 /* AnaButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnaButton.swift; sourceTree = "<group>"; };
+		1854DB6C2A677EAF00C866B8 /* UIViewController+Addition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Addition.swift"; sourceTree = "<group>"; };
+		1854DB6E2A677F2200C866B8 /* UIView+Addition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Addition.swift"; sourceTree = "<group>"; };
 		18FD696E2A668CAE00B62591 /* UIColor+Addition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Addition.swift"; sourceTree = "<group>"; };
 		2CC461BE2551214600BF96E8 /* ZLAddPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZLAddPhotoCell.swift; sourceTree = "<group>"; };
 		2CC461C12551312C00BF96E8 /* Bool+ZLPhotoBrowser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool+ZLPhotoBrowser.swift"; sourceTree = "<group>"; };
@@ -219,6 +225,8 @@
 				FDE1DB75289A4B120003CA4D /* NSError+ZLPhotoBrowser.swift */,
 				FD24655728E2A96200C15B20 /* UIView+ZLPhotoBrowser.swift */,
 				18FD696E2A668CAE00B62591 /* UIColor+Addition.swift */,
+				1854DB6C2A677EAF00C866B8 /* UIViewController+Addition.swift */,
+				1854DB6E2A677F2200C866B8 /* UIView+Addition.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -226,6 +234,7 @@
 		E4C911CD24E286C30061DA40 /* General */ = {
 			isa = PBXGroup;
 			children = (
+				1854DB6A2A677B5800C866B8 /* AnaButton.swift */,
 				E4C911D724E298B80061DA40 /* ZLGeneralDefine.swift */,
 				E4CF57EF24EA923C00BEBFC6 /* ZLLanguageDefine.swift */,
 				E4C911DF24E2ACE20061DA40 /* ZLPhotoManager.swift */,
@@ -389,6 +398,7 @@
 				E4C911DC24E2A69B0061DA40 /* ZLPhotoModel.swift in Sources */,
 				E417AC0224F63E7E00EDDCD2 /* ZLEditImageViewController.swift in Sources */,
 				2CC461BF2551214700BF96E8 /* ZLAddPhotoCell.swift in Sources */,
+				1854DB6B2A677B5800C866B8 /* AnaButton.swift in Sources */,
 				FDC6B5FD273B6E1C00973E43 /* ZLCameraConfiguration.swift in Sources */,
 				E4D046F22500A361000BAEC2 /* ZLPhotoPreviewPopInteractiveTransition.swift in Sources */,
 				FD047629276C7C1C00A93FA3 /* ZLAdjustSlider.swift in Sources */,
@@ -414,9 +424,11 @@
 				E4C911DE24E2AA950061DA40 /* ZLAlbumListModel.swift in Sources */,
 				FDA54B8B2876D8CA0077F4FA /* UIFont+ZLPhotoBrowser.swift in Sources */,
 				E49BD1F724E3CD9E005D7DFB /* ZLThumbnailPhotoCell.swift in Sources */,
+				1854DB6D2A677EB000C866B8 /* UIViewController+Addition.swift in Sources */,
 				FD74F6DD29345E4100B7916A /* ZLBaseStickerView.swift in Sources */,
 				E4D06913254C06EB002278C4 /* ZLInputTextViewController.swift in Sources */,
 				E492ABED24E5454E005E1BD5 /* ZLProgressView.swift in Sources */,
+				1854DB6F2A677F2200C866B8 /* UIView+Addition.swift in Sources */,
 				E462466A24ED06C700EF6C57 /* ZLThumbnailViewController.swift in Sources */,
 				FD1C586B277AB8790037A746 /* UIViewController+ZLPhotoBrowser.swift in Sources */,
 				E4C911DA24E2A4910061DA40 /* ZLCustomCamera.swift in Sources */,

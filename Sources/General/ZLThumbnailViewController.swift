@@ -52,6 +52,12 @@ class ZLThumbnailViewController: UIViewController {
     
     private var embedAlbumListView: ZLEmbedAlbumListView?
     
+    
+    var hiddenView: UIView!
+    var effectView: UIVisualEffectView!
+    var hiddenButton: AnaButton!
+    
+    
     private lazy var bottomView: UIView = {
         let view = UIView()
         view.backgroundColor = .zl.bottomToolViewBgColor
@@ -273,6 +279,11 @@ class ZLThumbnailViewController: UIViewController {
         
         embedAlbumListView?.frame = CGRect(x: 0, y: navViewFrame.maxY, width: view.bounds.width, height: view.bounds.height - navViewFrame.maxY)
         
+        hiddenView.bounds = CGRect(x: 0, y: 0, width: view.width(), height: bottomSafeAreaPadding() + (ZLPhotoUIConfiguration.default().isSmallScreen ? 14 : 4) + 74)
+        hiddenView.setOrigin(x: 0, y: view.height() - hiddenView.height())
+        effectView.frame = hiddenView.bounds
+        hiddenButton.frame = CGRect(x: 18, y: 17, width: hiddenView.width() - 36, height: 58)
+        
         let showBottomToolBtns = shouldShowBottomToolBar()
         
         let bottomViewH: CGFloat
@@ -287,9 +298,9 @@ class ZLThumbnailViewController: UIViewController {
         }
         
         let totalWidth = view.frame.width - insets.left - insets.right
-        collectionView.frame = CGRect(x: insets.left, y: 0, width: totalWidth, height: view.frame.height)
-        collectionView.contentInset = UIEdgeInsets(top: collectionViewInsetTop, left: 0, bottom: bottomViewH, right: 0)
-        collectionView.scrollIndicatorInsets = UIEdgeInsets(top: insets.top, left: 0, bottom: bottomViewH, right: 0)
+        collectionView.frame = CGRect(x: insets.left, y: embedNavView!.maxY(), width: totalWidth, height: view.frame.height - embedNavView!.maxY())
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: hiddenView.isHidden ? 0 : hiddenView.height() - bottomSafeAreaPadding(), right: 0)
+        collectionView.scrollIndicatorInsets = UIEdgeInsets(top: insets.top, left: 0, bottom: hiddenView.isHidden ? 0 : hiddenView.height() - bottomSafeAreaPadding(), right: 0)
         
         if !isLayoutOK {
             scrollToBottom()
@@ -366,6 +377,24 @@ class ZLThumbnailViewController: UIViewController {
         bottomView.addSubview(previewBtn)
         bottomView.addSubview(originalBtn)
         bottomView.addSubview(doneBtn)
+        
+        hiddenView = UIView()
+        hiddenView.isHidden = ZLPhotoConfiguration.default().maxSelectCount == 1
+        view.addSubview(hiddenView)
+        
+        let effect = UIBlurEffect(style: .light)
+        effectView = UIVisualEffectView(effect: effect)
+        hiddenView.addSubview(effectView)
+        
+        hiddenButton = AnaButton(type: .training, margin: 10)
+        hiddenButton.layer.cornerRadius = 29
+        hiddenButton.backgroundColor = .color(hexString: "#25282b")
+        hiddenButton.setImage(.zl.getImage("eye-slash"), for: .normal)
+        hiddenButton.setTitle("Hidden", for: .normal)
+        hiddenButton.setTitleColor(.white, for: .normal)
+        hiddenButton.titleLabel?.font = .zl.semiBold16
+        hiddenButton.addTarget(self, action: #selector(doneBtnClick), for: .touchUpInside)
+        hiddenView.addSubview(hiddenButton)
         
         setupNavView()
     }
@@ -1260,14 +1289,14 @@ extension ZLThumbnailViewController: UICollectionViewDataSource, UICollectionVie
     }
     
     private func setCellMaskView(_ cell: ZLThumbnailPhotoCell, isSelected: Bool, model: ZLPhotoModel) {
-        cell.coverView.isHidden = true
+        cell.coverView.backgroundColor = .color(hexString: "#70ffffff")
+        cell.coverView.isHidden = ZLPhotoConfiguration.default().maxSelectCount == 1
         cell.enableSelect = true
         let arrSel = (navigationController as? ZLImageNavController)?.arrSelectedModels ?? []
         let config = ZLPhotoConfiguration.default()
         
         if isSelected {
-            cell.coverView.backgroundColor = .zl.selectedMaskColor
-            cell.coverView.isHidden = !config.showSelectedMask
+            cell.coverView.isHidden = true
             if config.showSelectedBorder {
                 cell.layer.borderWidth = 4
             }
@@ -1277,22 +1306,18 @@ extension ZLThumbnailViewController: UICollectionViewDataSource, UICollectionVie
                 if config.allowMixSelect {
                     let videoCount = arrSel.filter { $0.type == .video }.count
                     if videoCount >= config.maxVideoSelectCount, model.type == .video {
-                        cell.coverView.backgroundColor = .zl.invalidMaskColor
-                        cell.coverView.isHidden = !config.showInvalidMask
+                        cell.coverView.isHidden = true
                         cell.enableSelect = false
                     } else if (config.maxSelectCount - selCount) <= (config.minVideoSelectCount - videoCount), model.type != .video {
-                        cell.coverView.backgroundColor = .zl.invalidMaskColor
-                        cell.coverView.isHidden = !config.showInvalidMask
+                        cell.coverView.isHidden = true
                         cell.enableSelect = false
                     }
                 } else if selCount > 0 {
-                    cell.coverView.backgroundColor = .zl.invalidMaskColor
-                    cell.coverView.isHidden = (!config.showInvalidMask || model.type != .video)
+                    cell.coverView.isHidden = true
                     cell.enableSelect = model.type != .video
                 }
             } else if selCount >= config.maxSelectCount {
-                cell.coverView.backgroundColor = .zl.invalidMaskColor
-                cell.coverView.isHidden = !config.showInvalidMask
+                cell.coverView.isHidden = true
                 cell.enableSelect = false
             }
             if config.showSelectedBorder {

@@ -67,8 +67,8 @@ class ZLThumbnailPhotoCell: UICollectionViewCell {
     
     lazy var btnSelect: ZLEnlargeButton = {
         let btn = ZLEnlargeButton(type: .custom)
-        btn.setBackgroundImage(.zl.getImage("zl_btn_unselected"), for: .normal)
-        btn.setBackgroundImage(.zl.getImage("zl_btn_selected"), for: .selected)
+        btn.setBackgroundImage(nil, for: .normal)
+        btn.setBackgroundImage(.zl.getImage("Selected"), for: .selected)
         btn.addTarget(self, action: #selector(btnSelectClick), for: .touchUpInside)
         btn.enlargeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 10, right: 5)
         return btn
@@ -129,7 +129,7 @@ class ZLThumbnailPhotoCell: UICollectionViewCell {
         contentView.addSubview(containerView)
         containerView.addSubview(coverView)
         containerView.addSubview(btnSelect)
-        btnSelect.addSubview(indexLabel)
+//        btnSelect.addSubview(indexLabel)
         containerView.addSubview(bottomShadowView)
         bottomShadowView.addSubview(videoTag)
         bottomShadowView.addSubview(livePhotoTag)
@@ -300,5 +300,4 @@ class ZLThumbnailPhotoCell: UICollectionViewCell {
         progressView.isHidden = true
         imageView.alpha = 1
     }
-    
 }
